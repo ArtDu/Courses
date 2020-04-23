@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/lib.dir/main.c.o  -o lib -ldl 

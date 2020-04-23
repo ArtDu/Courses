@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/linux.dir/solution.c.o  -o linux 

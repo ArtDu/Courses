@@ -1,0 +1,3 @@
+/home/art/study/stepik/linux/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/art/study/stepik/linux/cmake-build-debug/CMakeFiles/linux.dir
+/home/art/study/stepik/linux/cmake-build-debug/CMakeFiles/edit_cache.dir
