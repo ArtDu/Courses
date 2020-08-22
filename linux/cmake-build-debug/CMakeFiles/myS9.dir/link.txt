@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/myS9.dir/main.cpp.o  -o myS9 
