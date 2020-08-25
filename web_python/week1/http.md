@@ -19,17 +19,17 @@ URI -- Uniform resource identifier -- короткая последовател�
 URL -- Uniform resouce locator -- для однозначной идентификации ресурсов в сети Веб.  
 Имеет следующую структуру:  
 Схема -- http/ftp/etc  
-![](../img/http.png)
+![](img/http.png)
 
-![](../img/struct.png)
+![](img/struct.png)
 
-![](../img/start_str.png)  
-![](../img/methods.png)  
-![](../img/field.png)  
-![](../img/fields.png)  
+![](img/start_str.png)  
+![](img/methods.png)  
+![](img/field.png)  
+![](img/fields.png)  
 
-![](../img/mime.png)  
-![](../img/ans.png)
+![](img/mime.png)  
+![](img/ans.png)
 
-![](../img/ans_codes.png)  
-![](../img/ans_fields.png)
+![](img/ans_codes.png)  
+![](img/ans_fields.png)

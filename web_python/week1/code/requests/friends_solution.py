@@ -67,3 +67,8 @@ def calc_age(uid):
         years[diff] += 1
 
     return sorted(years.items(), key=lambda v: (v[1], -v[0]), reverse=True)
+
+
+if __name__ == '__main__':
+    res = calc_age('reigning')
+    print(res)
