@@ -30,4 +30,4 @@ def convert(amount, cur_from, cur_to, date, requests):
     return result.quantize(Decimal('1.0000'))  # не забыть про округление до 4х знаков после запятой
 
 
-# print(convert(Decimal("1000.1000"), 'USD', 'JPY', "17/02/2005", requests))    
+# print(convert(Decimal("1000.1000"), 'USD', 'JPY', "17/02/2005", requests))
