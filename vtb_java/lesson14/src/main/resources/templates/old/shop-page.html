@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+
+    <title>Каталог товаров</title>
+
+    <link rel="icon" type="image/png" th:href="@{/favicon.ico}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}"/>
+</head>
+
+<body>
+
+<div th:replace="~{navigation :: navi(Shop)}"/>
+
+<div class="container">
+    <br>
+
+    <h1 th:text="Фильтры" />
+
+    <form th:action="@{/shop}" method="get">
+        <input hidden th:value="${page}" th:name="page">
+        <input th:value="${word != null} ? ${word}" th:name="word" type="text" placeholder="Название">
+        <input th:value="${min != null} ? ${min}" th:name="min" type="number" placeholder="Минимальная цена">
+        <input th:value="${max != null} ? ${max}" th:name="max" type="number" placeholder="Максимальная цена">
+        <button type="submit" class="btn btn-primary">Фильтровать</button>
+    </form>
+
+    <br>
+
+    <h1 th:text="#{products.list}" />
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Картинка</th>
+            <th>Название товара</th>
+            <th>Цена</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}"/>
+            <td>
+                <img th:if="${product.images.size() > 0}" width="40" height="40" th:src="@{'/images/' + ${product.images[0].path}}" />
+            </td>
+            <td >
+                <a th:text="${product.title}" th:href="@{'/shop/product_info/' + ${product.id}}" />
+            </td>
+
+            <td th:text="${product.price}"/>
+            <td>
+                <a th:href="@{'/shop/cart/add/' + ${product.id}}" class="btn btn-primary">Добавить в корзину</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <!--<li class="page-item"><a class="page-link" href="#">Previous</a></li>-->
+            <li th:each="i : ${#numbers.sequence(1, totalPage, 1)}">
+                <a th:class="page-link" th:text="${i}" th:classappend="${page == i ? 'active' : ''}" th:href="@{'/shop/?page=' + ${i} + ${filters}}"></a>
+            </li>
+            <!--<li class="page-item"><a class="page-link" href="#">Next</a></li>-->
+        </ul>
+    </nav>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+
+    <title>Информация</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}"/>
+</head>
+
+<body>
+
+<div th:replace="~{navigation :: navi(Info)}" />
+
+<div class="container">
+    <br>
+    <h1>Информация</h1>
+
+    <form th:action="@{/data}" method="POST">
+        <input th:each="i : ${#numbers.sequence(1, 5)}" th:name="${'datval' + i}" type="text">
+        <button type="submit" class="btn btn-primary">Готово</button>
+    </form>
+
+    <!--<form method="post">-->
+        <!--<input type="text" th:each="i : ${#numbers.sequence(1, 5)}">-->
+    <!--</form>-->
+</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+
+    <title>Страница товара</title>
+
+    <link rel="icon" type="image/png" th:href="@{/favicon.ico}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}"/>
+</head>
+
+<body>
+
+<div th:replace="~{navigation :: navi(Home)}" />
+
+<div class="container">
+    <br>
+    <h1>Страница товара</h1>
+    <div th:object="${product}">
+        <h1 th:text="*{title}"></h1>
+        <br>
+        <img th:if="${product.images.size() > 0}" width="40" height="40"
+             th:src="@{'/images/' + ${product.images[0].path}}"/>
+        <br>
+        <label for="productCost">Цена</label>
+        <br>
+        <a th:text="*{price}" id="productCost"></a>
+        <br>
+        <a th:text="*{category.title}"></a>
+        <br>
+        <a th:text="*{shortDescription}"></a>
+        <br>
+        <a th:text="*{fullDescription}"></a>
+        <br>
+        <a th:href="@{'/shop/cart/add/' + ${product.id}}" class="btn btn-primary">Добавить в корзину</a>
+    </div>
+</div>
+</body>
