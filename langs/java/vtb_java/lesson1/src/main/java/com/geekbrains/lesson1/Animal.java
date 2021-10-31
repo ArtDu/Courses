@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public abstract class Animal {
 
-    private static HashMap<String, Integer> hm = new HashMap<String, Integer>();
+    private static final HashMap<String, Integer> hm = new HashMap<String, Integer>();
     public int getCount(){
         return hm.get(getClassName());
     }
