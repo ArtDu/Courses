@@ -7,6 +7,9 @@
     <groupId>org.example.geekbrains</groupId>
     <artifactId>lesson4</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <properties>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+    </properties>
 
 </project>
